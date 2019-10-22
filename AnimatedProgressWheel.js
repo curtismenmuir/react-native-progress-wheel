@@ -72,7 +72,9 @@ class AnimatedProgressWheel extends PureComponent {
 
 renderLoader = (styles, color = this.props.color) =>
 <Fragment>
-<View style={styles.background}/>
+<View style={styles.background}>
+    {this.props.children}
+</View>
 {this.circleHalf(styles, false, color)}
 <View style={styles.halfCircle}>
     <View style={styles.cutOff}/>
@@ -138,6 +140,7 @@ const generateStyles = ({size, width, color, backgroundColor, containerColor}) =
             borderWidth: width,
             borderColor: backgroundColor,
             position: 'absolute',
+			alignItems: "center",
         },
         cutOff: {
             backgroundColor: containerColor,
